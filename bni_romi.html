@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BNI Securities - Formulir Aplikasi Pembukaan Rekening Investor</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    background: #f0f0f0;
+    color: #000;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 16px 18px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid #000;
+    margin-bottom: 6px;
+  }
+
+  .header-logo {
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-right: 1px solid #000;
+  }
+
+  .bni-logo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .bni-box {
+    background: #f47920;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 900;
+    padding: 4px 6px;
+    letter-spacing: 1px;
+  }
+
+  .bni-name {
+    font-size: 9px;
+    font-weight: 700;
+    color: #f47920;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    letter-spacing: 0.5px;
+  }
+
+  .header-title {
+    flex: 1;
+    text-align: center;
+    padding: 8px 10px;
+    border-right: 1px solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .header-title .title-id {
+    font-size: 11px;
+    font-weight: 900;
+    color: #f47920;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .header-title .title-en {
+    font-size: 9px;
+    font-style: italic;
+    color: #f47920;
+    letter-spacing: 0.3px;
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+  }
+
+  .securities-logo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .sec-bni-box {
+    background: #f47920;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    padding: 3px 5px;
+  }
+
+  .sec-text {
+    font-size: 10px;
+    font-weight: 700;
+    color: #f47920;
+  }
+
+  /* ── INSTRUCTION BAR ── */
+  .instruction-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    padding: 4px 0;
+  }
+
+  .instruction-text {
+    font-size: 9px;
+  }
+
+  .instruction-text .id { font-weight: 700; font-size: 9.5px; }
+  .instruction-text .en { font-style: italic; font-size: 8.5px; }
+
+  .client-code-box {
+    border: 2px solid #f47920;
+    padding: 4px 10px;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .client-code-box .label-id { font-weight: 700; font-size: 9px; }
+  .client-code-box .label-en { font-style: italic; font-size: 9px; }
+  .client-code-box .code-field {
+    margin-top: 4px;
+    border-top: 1px solid #000;
+    height: 16px;
+  }
+
+  /* ── CIF/SID ROW ── */
+  .top-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    border: 1px solid #000;
+    margin-bottom: 6px;
+  }
+
+  .top-fields > div {
+    border-right: 1px solid #000;
+    padding: 4px 6px;
+  }
+
+  .top-fields > div:last-child { border-right: none; }
+
+  .cif-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .checkbox-group {
+    display: flex;
+    gap: 6px;
+    font-size: 8.5px;
+  }
+
+  .cb-item { display: flex; align-items: center; gap: 2px; }
+  .cb { width: 9px; height: 9px; border: 1px solid #000; display: inline-block; }
+
+  .field-label {
+    font-size: 8px;
+    color: #555;
+    font-style: italic;
+  }
+
+  .char-boxes {
+    display: flex;
+    gap: 1px;
+    margin-top: 2px;
+  }
+
+  .char-box {
+    width: 13px;
+    height: 14px;
+    border: 1px solid #000;
+    font-size: 8px;
+  }
+
+  .sub-label {
+    font-size: 8px;
+    color: #555;
+  }
+
+  .right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .internet-banking {
+    font-size: 8px;
+  }
+
+  .ib-options {
+    display: flex;
+    gap: 8px;
+    margin-top: 2px;
+    font-size: 8.5px;
+  }
+
+  .officer-note {
+    font-size: 7.5px;
+    color: #555;
+    font-style: italic;
+    border-top: 1px dashed #aaa;
+    margin-top: 4px;
+    padding-top: 2px;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    background: #2c6baf;
+    color: #fff;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 4px 8px;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-letter {
+    background: #fff;
+    color: #2c6baf;
+    font-weight: 900;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+  }
+
+  /* ── APPLICANT DATA ── */
+  .applicant-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+
+  .field-row {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .field-name {
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 90px;
+    flex-shrink: 0;
+  }
+
+  .field-name .en {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 8px;
+    display: block;
+  }
+
+  .colon { font-size: 9px; }
+
+  .field-line {
+    flex: 1;
+    border-bottom: 1px solid #000;
+    min-height: 12px;
+  }
+
+  .fill-note {
+    font-size: 8px;
+    font-style: italic;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #000;
+  }
+
+  .option-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 9px;
+  }
+
+  .opt-item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .date-boxes {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 8px;
+  }
+
+  .date-label {
+    font-size: 7.5px;
+    color: #555;
+    font-style: italic;
+  }
+
+  .small-boxes {
+    display: flex;
+    gap: 1px;
+  }
+
+  .date-box {
+    width: 12px;
+    height: 13px;
+    border: 1px solid #000;
+  }
+
+  .id-options {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .id-opt {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: 9px;
+  }
+
+  .id-opt .sub {
+    font-size: 7.5px;
+    font-style: italic;
+    display: block;
+    color: #555;
+  }
+
+  /* ── ADDRESS SECTION (right col) ── */
+  .address-section { }
+
+  .address-label {
+    font-size: 8.5px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .address-label .en {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 8px;
+  }
+
+  .address-note {
+    font-size: 8px;
+    font-style: italic;
+    color: #555;
+    margin-bottom: 3px;
+  }
+
+  .rtrw-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 3px 0;
+    font-size: 9px;
+    font-weight: 700;
+  }
+
+  .inline-boxes {
+    display: flex;
+    gap: 1px;
+  }
+
+  .sm-box {
+    width: 12px;
+    height: 13px;
+    border: 1px solid #000;
+  }
+
+  .ownership-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 10px;
+    margin-top: 4px;
+    font-size: 8.5px;
+  }
+
+  .own-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  /* ── PHONE FIELDS ── */
+  .phone-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .phone-label {
+    font-size: 9px;
+    font-weight: 700;
+    min-width: 70px;
+  }
+
+  .phone-label .en { font-weight: 400; font-style: italic; font-size: 7.5px; display: block; }
+
+  .phone-boxes {
+    display: flex;
+    gap: 1px;
+  }
+
+  .ph-box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+  }
+
+  /* ── EDUCATION / OCCUPATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px 10px;
+    padding: 6px;
+    font-size: 8.5px;
+  }
+
+  .edu-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .edu-item .sub {
+    font-size: 7.5px;
+    color: #555;
+    font-style: italic;
+    display: block;
+  }
+
+  .occ-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px 10px;
+    padding: 6px;
+    font-size: 8.5px;
+  }
+
+  .occ-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 3px;
+  }
+
+  .occ-item .sub {
+    font-size: 7.5px;
+    color: #555;
+    font-style: italic;
+    display: block;
+  }
+
+  /* ── SIGNATURE BOX ── */
+  .signature-box {
+    border: 2px solid #f47920;
+    height: 60px;
+    margin-top: 6px;
+    display: flex;
+    align-items: flex-end;
+    padding: 4px 6px;
+    font-size: 8.5px;
+    color: #555;
+  }
+
+  /* ── PAGE NUMBER ── */
+  .page-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    margin-top: 8px;
+    border-top: 1px solid #ccc;
+    padding-top: 4px;
+  }
+
+  /* ── RELIGION GRID ── */
+  .religion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 8px;
+    font-size: 8.5px;
+    margin-top: 2px;
+  }
+
+  .rel-item { display: flex; align-items: center; gap: 3px; }
+
+  /* ── NATIONALITY ── */
+  .nat-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 3px;
+    font-size: 8.5px;
+  }
+
+  .nat-note {
+    font-size: 7.5px;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* helpers */
+  .bold { font-weight: 700; }
+  .italic { font-style: italic; }
+  .mt2 { margin-top: 2px; }
+  .mt4 { margin-top: 4px; }
+  .mb4 { margin-bottom: 4px; }
+  .separator { border-bottom: 1px solid #ddd; margin: 5px 0; }
+
+  .two-col-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  .npwp-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 3px;
+    font-size: 8.5px;
+  }
+
+  .address-multiline {
+    border-bottom: 1px solid #000;
+    min-height: 12px;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-logo">
+      <div class="bni-logo">
+        <div class="bni-box">BNI</div>
+        <div class="bni-name">Bank Negara Indonesia</div>
+      </div>
+    </div>
+    <div class="header-title">
+      <div class="title-id">FORMULIR APLIKASI PEMBUKAAN REKENING INVESTOR (PERORANGAN)</div>
+      <div class="title-en">INDIVIDUAL INVESTOR ACCOUNT OPENING APPLICATION FORM</div>
+    </div>
+    <div class="header-right">
+      <div class="securities-logo">
+        <div class="sec-bni-box">BNI</div>
+        <div class="sec-text">Securities</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INSTRUCTION BAR + CLIENT CODE -->
+  <div class="instruction-bar">
+    <div class="instruction-text">
+      <div class="id">Mohon diisi dengan huruf cetak dan beri tanda √ pada kotak pilihan</div>
+      <div class="en">Please fill in with block letters and mark √ in the box</div>
+    </div>
+    <div class="client-code-box">
+      <div class="label-id">Kode Nasabah</div>
+      <div class="label-en"><em>Client Code</em></div>
+      <div class="code-field"></div>
+    </div>
+  </div>
+
+  <!-- TOP FIELDS: CIF / SID / Internet Banking -->
+  <div style="border:1px solid #000; margin-bottom:6px; padding:4px 6px;">
+    <div style="display:grid; grid-template-columns: auto 1fr auto 1fr auto; gap:4px 8px; align-items:start;">
+
+      <!-- CIF Baru / CIF Lama -->
+      <div style="display:flex; flex-direction:column; gap:3px;">
+        <div class="checkbox-group">
+          <div class="cb-item"><div class="cb"></div> <span>CIF Baru / <em>New CIF</em></span></div>
+        </div>
+        <div class="checkbox-group">
+          <div class="cb-item"><div class="cb"></div> <span>CIF Lama / <em>Existing CIF</em></span></div>
+        </div>
+      </div>
+
+      <!-- No CIF -->
+      <div>
+        <div style="font-size:8px;">No CIF *)<br><span class="field-label">CIF Number</span></div>
+        <div class="char-boxes">
+          <div style="display:flex; gap:1px; margin-top:2px;">
+            <div style="display:flex; align-items:center; gap:2px;">
+              <div class="char-boxes">
+                <?php for($i=0;$i<12;$i++): ?><div class="char-box"></div><?php endfor; ?>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; gap:1px; margin-top:2px;">
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:4px;">
+          <div style="font-size:8px;">Baru / <em>New</em></div>
+          <div style="display:flex; gap:1px;">
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Rekening di BNI -->
+      <div style="font-size:8px; font-weight:700; border-left:1px solid #ccc; padding-left:6px;">
+        No Rekening di BNI / <em>BNI Account Number</em> *)
+      </div>
+
+      <!-- No SID + No Sub Rekening -->
+      <div>
+        <div style="font-size:8px;">No SID *)<br><span class="field-label">SID Number</span></div>
+        <div style="display:flex; gap:1px; margin-top:2px;">
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div>
+        </div>
+        <div style="font-size:8px; margin-top:4px;">No Sub Rekening Efek *)<br><span class="field-label">Securities Account Number</span></div>
+        <div style="display:flex; gap:1px; margin-top:2px;">
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div>
+        </div>
+        <div style="font-size:8px; margin-top:4px;">Rek. Yang ada<br><em>Existing Account</em></div>
+        <div style="display:flex; gap:1px; margin-top:2px;">
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div>
+        </div>
+      </div>
+
+      <!-- Internet Banking -->
+      <div style="border-left:1px solid #ccc; padding-left:8px; font-size:8px;">
+        <div class="bold">Daftar Internet Banking?</div>
+        <div class="italic" style="font-size:7.5px;">Sign Up for Internet Banking?</div>
+        <div class="ib-options">
+          <div class="opt-item"><div class="cb"></div> <span>Ya<br><em>Yes</em></span></div>
+          <div class="opt-item"><div class="cb"></div> <span>Tidak<br><em>No</em></span></div>
+        </div>
+        <div class="officer-note">*) diisi oleh petugas<br><em>Filled by the officer</em></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION A: DATA PEMOHON -->
+  <div class="section-header">
+    <div class="section-letter">A</div>
+    <span>DATA PEMOHON / <em style="font-weight:400;">APPLICANT DATA</em></span>
+  </div>
+
+  <div class="two-col-section" style="margin-bottom:6px;">
+
+    <!-- LEFT COLUMN -->
+    <div>
+      <!-- Nama Depan -->
+      <div class="field-row">
+        <div class="field-name">Nama Depan<span class="en">First Name</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+      <!-- Nama Belakang -->
+      <div class="field-row">
+        <div class="field-name">Nama Belakang<span class="en">Last Name</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <div class="fill-note">(Isi Nama sesuai Kartu Identitas / <em>Fill Name as stated in the ID</em>)</div>
+
+      <!-- Nama Alias -->
+      <div class="field-row">
+        <div class="field-name">Nama Alias (jika ada)<span class="en">Alias Name (if any)</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Jenis Kelamin -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Jenis Kelamin<br><span class="italic" style="font-size:8px; font-weight:400;">Sex</span></div>
+        <div class="option-row mt2">
+          <div class="colon">:</div>
+          <div class="opt-item"><div class="cb"></div> <span>Laki-Laki<br><em style="font-size:7.5px;">Male</em></span></div>
+          <div class="opt-item"><div class="cb"></div> <span>Perempuan<br><em style="font-size:7.5px;">Female</em></span></div>
+        </div>
+      </div>
+
+      <!-- Status Pernikahan -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Status Pernikahan<br><span class="italic" style="font-size:8px; font-weight:400;">Marital Status</span></div>
+        <div class="option-row mt2">
+          <div class="colon">:</div>
+          <div class="opt-item"><div class="cb"></div> <span>Menikah<br><em style="font-size:7.5px;">Married</em></span></div>
+          <div class="opt-item"><div class="cb"></div> <span>Lajang<br><em style="font-size:7.5px;">Single</em></span></div>
+          <div class="opt-item"><div class="cb"></div> <span>Janda/Duda<br><em style="font-size:7.5px;">Widow/Widower</em></span></div>
+        </div>
+      </div>
+
+      <!-- Tempat/Tanggal Lahir -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Tempat/Tanggal Lahir<span style="font-weight:400; font-style:italic; font-size:8px;"><br>Place/Date of Birth</span></div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="field-line" style="width:80px; flex:none;"></div>
+          <div class="date-boxes">
+            <span class="date-label">tgl</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">bln</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">thn</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nama Gadis Ibu Kandung -->
+      <div class="field-row mb4">
+        <div class="field-name">Nama Gadis Ibu Kandung<span class="en">Mother's Maiden Name</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Tanda Pengenal -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Tanda pengenal<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Identity</span></div>
+        <div style="display:flex; align-items:flex-start; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="id-options">
+            <div class="id-opt"><div class="cb"></div><span>KTP<span class="sub">ID Card</span></span></div>
+            <div class="id-opt"><div class="cb"></div><span>Paspor<span class="sub">Passport</span></span></div>
+            <div class="id-opt"><div class="cb"></div><span>KITAS/KITAP<span class="sub">Temporary Residence Visa</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No ID -->
+      <div class="field-row mb4">
+        <div class="field-name">No:<span class="en">ID Number</span></div>
+        <div class="colon"></div>
+        <div style="display:flex; gap:1px;">
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          <div class="char-box"></div>
+        </div>
+      </div>
+
+      <!-- Berlaku s/d -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Berlaku s/d<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Expiry Date</span></div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="date-boxes">
+            <span class="date-label">tgl</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">bln</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">thn</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div></div>
+          </div>
+          <div class="opt-item" style="font-size:8px;"><div class="cb"></div> Seumur Hidup / <em>Valid for life</em></div>
+        </div>
+      </div>
+
+      <!-- Tempat Diterbitkan -->
+      <div class="field-row mb4">
+        <div class="field-name">Tempat Diterbitkan<span class="en">Place of Issuance</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Tanggal Diterbitkan -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Tanggal Diterbitkan<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Date of Issuance</span></div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="date-boxes">
+            <span class="date-label">tgl</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">bln</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">thn</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kewarganegaraan -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Kewarganegaraan<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Nationality</span></div>
+        <div style="margin-top:2px;">
+          <div class="nat-row"><div class="colon">:</div><div class="cb"></div><span style="font-weight:700;">WNI</span>
+            <span class="nat-note" style="margin-left:16px;">*) dilampirkan Paspor &amp; KITAS<br><em>Passport &amp; KITAS attached</em></span>
+          </div>
+          <div class="nat-row" style="align-items:center; gap:4px;">
+            <div style="width:9px;"></div>
+            <div class="cb"></div><span style="font-weight:700;">WNA *),</span>
+            <span>Negara Asal : <span style="border-bottom:1px solid #000; display:inline-block; width:80px;"></span></span>
+          </div>
+          <div style="font-size:8px; font-style:italic; margin-left:13px; color:#555;">Native Country</div>
+        </div>
+      </div>
+
+      <!-- Agama -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Agama<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Religion :</span></div>
+        <div class="religion-grid mt2">
+          <div class="rel-item"><div class="cb"></div> Islam<br><em style="font-size:7.5px; color:#555;">Moslem</em></div>
+          <div class="rel-item"><div class="cb"></div> Kristen<br><em style="font-size:7.5px; color:#555;">Christian</em></div>
+          <div class="rel-item"><div class="cb"></div> Katolik<br><em style="font-size:7.5px; color:#555;">Catholic</em></div>
+          <div class="rel-item"><div class="cb"></div> Buddha<br><em style="font-size:7.5px; color:#555;">Buddhist</em></div>
+          <div class="rel-item"><div class="cb"></div> Hindu<br><em style="font-size:7.5px; color:#555;">Hindu</em></div>
+          <div class="rel-item"><div class="cb"></div> Kong Hu Cu<br><em style="font-size:7.5px; color:#555;">Kong Hu Cu</em></div>
+        </div>
+        <div class="field-row mt2">
+          <span style="font-size:8.5px;">Lainnya / <em>Others</em> :</span>
+          <div class="field-line"></div>
+        </div>
+      </div>
+
+      <!-- NPWP -->
+      <div class="mb4">
+        <div style="display:flex; align-items:baseline; gap:4px;">
+          <span class="bold" style="font-size:9px;">NPWP<br><span style="font-size:8px; font-weight:400; font-style:italic;">Tax ID Number</span></span>
+          <div class="colon">:</div>
+          <div class="opt-item"><div class="cb"></div> Ada<br><em style="font-size:7.5px;">Possess</em></div>
+          <div class="opt-item" style="margin-left:8px;"><div class="cb"></div> Tidak Ada<br><em style="font-size:7.5px;">Not Possess</em></div>
+        </div>
+        <div class="field-row mt2">
+          <span style="font-size:9px; font-weight:700;">No:</span>
+          <div style="display:flex; gap:1px;">
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tempat Diterbitkan NPWP -->
+      <div class="field-row mb4">
+        <div class="field-name">Tempat Diterbitkan<span class="en">Place of Issuance</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Tanggal Diterbitkan NPWP -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Tanggal Diterbitkan<span style="font-size:8px; font-weight:400; font-style:italic;"><br>Date of Issuance</span></div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="date-boxes">
+            <span class="date-label">tgl</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">bln</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div></div>
+            <span class="date-label">thn</span>
+            <div class="small-boxes"><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div><div class="date-box"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN: ADDRESS -->
+    <div>
+      <!-- Alamat sesuai KTP -->
+      <div class="mb4">
+        <div style="display:flex; align-items:baseline; gap:4px;">
+          <div>
+            <div class="bold" style="font-size:9px;">Alamat (sesuai tanda pengenal)</div>
+            <div class="italic" style="font-size:8px; color:#555;">Address as stated in ID Card</div>
+          </div>
+          <div style="font-size:8px; color:#555;">: (fotokopi terlampir / <em>copy attached</em>)</div>
+        </div>
+        <div class="address-multiline" style="margin-top:3px;"></div>
+        <div class="address-multiline"></div>
+      </div>
+
+      <!-- Alamat Tinggal Terkini -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Alamat Tempat Tinggal Terkini</div>
+        <div class="italic" style="font-size:8px; color:#555;">Present Residence Address</div>
+        <div style="display:flex; align-items:center; gap:4px; margin-top:2px;">
+          <div class="colon">:</div>
+          <div class="field-line"></div>
+        </div>
+        <div class="field-line" style="margin-top:2px;"></div>
+
+        <!-- RT/RW -->
+        <div class="rtrw-row mt2">
+          RT / RW
+          <div class="inline-boxes"><div class="sm-box"></div><div class="sm-box"></div><div class="sm-box"></div></div>
+          /
+          <div class="inline-boxes"><div class="sm-box"></div><div class="sm-box"></div><div class="sm-box"></div></div>
+        </div>
+      </div>
+
+      <!-- Desa/Kelurahan -->
+      <div class="field-row mb4">
+        <div class="field-name">Desa / Kelurahan<span class="en">Village</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Kecamatan -->
+      <div class="field-row mb4">
+        <div class="field-name">Kecamatan<span class="en">Sub-District</span></div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- Kota + Kode Pos -->
+      <div style="display:flex; gap:6px; align-items:flex-end; margin-bottom:5px;">
+        <div style="flex:1;">
+          <div class="bold" style="font-size:9px;">Kota<span style="display:block; font-weight:400; font-style:italic; font-size:8px;">City</span></div>
+          <div style="display:flex; align-items:center; gap:2px; margin-top:2px;">
+            <div class="colon">:</div>
+            <div class="field-line"></div>
+          </div>
+        </div>
+        <div>
+          <div class="bold" style="font-size:9px;">Kode Pos<span style="display:block; font-weight:400; font-style:italic; font-size:8px;">Zip Code</span></div>
+          <div style="display:flex; gap:1px; margin-top:2px;">
+            <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+            <div class="char-box"></div><div class="char-box"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Propinsi + Negara -->
+      <div style="display:flex; gap:6px; align-items:flex-end; margin-bottom:5px;">
+        <div style="flex:1;">
+          <div class="bold" style="font-size:9px;">Propinsi<span style="display:block; font-weight:400; font-style:italic; font-size:8px;">Province</span></div>
+          <div style="display:flex; align-items:center; gap:2px; margin-top:2px;">
+            <div class="colon">:</div>
+            <div class="field-line"></div>
+          </div>
+        </div>
+        <div style="flex:1;">
+          <div class="bold" style="font-size:9px;">Negara<span style="display:block; font-weight:400; font-style:italic; font-size:8px;">Country</span></div>
+          <div style="display:flex; align-items:center; gap:2px; margin-top:2px;">
+            <div class="field-line"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Status Tempat Tinggal -->
+      <div class="mb4">
+        <div class="bold" style="font-size:9px;">Status Tempat Tinggal / <em style="font-weight:400; font-size:8px;">Ownership of Residence</em> :</div>
+        <div class="ownership-grid mt2">
+          <div class="own-item"><div class="cb"></div><span>Milik Sendiri<br><em style="font-size:7.5px; color:#555;">Own House</em></span></div>
+          <div class="own-item"><div class="cb"></div><span>Milik Sendiri Dijaminkan<br><em style="font-size:7.5px; color:#555;">Own House Used as Collateral</em></span></div>
+          <div class="own-item"><div class="cb"></div><span>Milik Keluarga<br><em style="font-size:7.5px; color:#555;">Family Owned House</em></span></div>
+          <div class="own-item"><div class="cb"></div><span>Sewa / Kontrak<br><em style="font-size:7.5px; color:#555;">Rented House</em></span></div>
+          <div class="own-item"><div class="cb"></div><span>Rumah Dinas<br><em style="font-size:7.5px; color:#555;">Official Residence</em></span></div>
+        </div>
+      </div>
+
+      <!-- No Telpon -->
+      <div class="phone-row">
+        <div class="phone-label">No. Telpon<span class="en">Phone Number</span></div>
+        <div class="colon">:</div>
+        <div class="phone-boxes">
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+        </div>
+      </div>
+
+      <!-- No Fax -->
+      <div class="phone-row">
+        <div class="phone-label">No. Fax<span class="en">Fax Number</span></div>
+        <div class="colon">:</div>
+        <div class="phone-boxes">
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+        </div>
+      </div>
+
+      <!-- No HP -->
+      <div class="phone-row">
+        <div class="phone-label">No. HP<span class="en">Cell Phone</span></div>
+        <div class="colon">:</div>
+        <div class="phone-boxes">
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+          <div class="ph-box"></div><div class="ph-box"></div><div class="ph-box"></div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="field-row mb4">
+        <div class="field-name">Email</div>
+        <div class="colon">:</div>
+        <div class="field-line"></div>
+      </div>
+
+      <!-- SECTION B: EDUCATIONAL BACKGROUND -->
+      <div class="section-header" style="margin-top:8px;">
+        <div class="section-letter">B.</div>
+        <span>LATAR BELAKANG PENDIDIKAN / <em style="font-weight:400;">EDUCATIONAL BACKGROUND</em></span>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-item"><div class="cb"></div><span>SD<span class="sub">Elementary</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>SMP<span class="sub">Junior High</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>SMA / Sederajat<span class="sub">Senior High School</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>D1-D2<span class="sub">Diploma</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>D3<span class="sub">Academy</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>S1<span class="sub">Degree</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>S2<span class="sub">Master</span></span></div>
+        <div class="edu-item"><div class="cb"></div><span>S3<span class="sub">Doctoral</span></span></div>
+        <div class="edu-item" style="grid-column: span 1;"><div class="cb"></div><span>Lain-lain, jelaskan<span class="sub">Others, please specify :</span><div class="field-line" style="width:80px; margin-top:2px;"></div></span></div>
+      </div>
+
+      <!-- SECTION C: OCCUPATIONAL BACKGROUND -->
+      <div class="section-header" style="margin-top:8px;">
+        <div class="section-letter">C.</div>
+        <span>LATAR BELAKANG PEKERJAAN / <em style="font-weight:400;">OCCUPATIONAL BACKGROUND</em></span>
+      </div>
+
+      <div class="occ-grid">
+        <div class="occ-item"><div class="cb"></div><span>Pelajar/Mahasiswa<span class="sub">Student</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Pegawai Swasta<span class="sub">Private Employee</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Pensiuanan<span class="sub">Retired</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Ibu Rumah Tangga<span class="sub">Housewife</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Pegawai Negeri<span class="sub">Civil Employee</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Guru<span class="sub">Teacher</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Wiraswasta<span class="sub">Self Employed</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>TNI / Polisi<span class="sub">Army / Police</span></span></div>
+        <div class="occ-item"><div class="cb"></div><span>Lainnya<span class="sub">Others</span><div class="field-line" style="width:70px; margin-top:2px;"></div></span></div>
+      </div>
+
+      <!-- Signature -->
+      <div class="signature-box">
+        <span>Tandatangan / <em>Signature</em></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAGE FOOTER -->
+  <div class="page-footer">
+    <span>2011</span>
+    <span>1/3</span>
+  </div>
+
+</div>
+</body>
+</html>
